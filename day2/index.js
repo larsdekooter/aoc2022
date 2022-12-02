@@ -14,10 +14,11 @@ groups.forEach((group) => {
 let calories = 0;
 const newarr = arr;
 const cals = [];
-for (let i = 0; i < 3; i++) {
-  const cal = newarr.reduce((a, b) => Math.max(a, b), -Infinity);
-  const index = arr.indexOf(cal);
-  newarr[index] = 0;
-  calories += cal;
-  cals.push(cal);
-}
+
+console.log(
+  newarr
+    .sort((a, b) => a - b)
+    .reverse()
+    .slice(0, 3)
+    .reduce((prev, cur) => prev + cur)
+);
