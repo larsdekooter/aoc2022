@@ -1,24 +1,25 @@
-const input = require("../day1/input");
+const { readFileSync } = require("fs");
+// Read the input
+const lines = readFileSync("./input.txt")
+  .toString()
+  .split("\r\n")
+  .map((group) => group.split(" "));
 
-const groups = input.split("\n\n");
-
-const arr = [];
-// Get all the calories of every elf
-groups.forEach((group) => {
-  arr.push(
-    group.split("\n").reduce((total, val) => (total += parseInt(val)), 0)
-  );
-});
-
-// Get the top 3 elfs calories
-let calories = 0;
-const newarr = arr;
-const cals = [];
-
+const winningCombos = { X: "Y", Y: "Z", Z: "X" };
+const choiseRatings = { X: 1, Y: 2, Z: 3 };
+const choiseMapping = { A: "X", B: "Y", C: "Z" };
+// Get the score
+function score([e, p]) {
+  const en = choiseMapping[e];
+  if (en === p) return 3;
+  if (winningCombos[en] === p) return 6;
+  return 0;
+}
+// Log the score
 console.log(
-  newarr
-    .sort((a, b) => a - b)
-    .reverse()
-    .slice(0, 3)
-    .reduce((prev, cur) => prev + cur)
+  lines.reduce(
+    (acc, [enemy, player]) =>
+      score([enemy, player]) + choiseRatings[player] + acc,
+    0
+  )
 );
