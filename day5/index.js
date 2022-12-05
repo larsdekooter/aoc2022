@@ -3,18 +3,17 @@ const input = readFileSync("./input.txt", "utf-8");
 const part1Stacks = [
   ["M", "F", "C", "W", "T", "D", "L", "B"],
   ["L", "B", "N"],
-  ["V", "L", "T", "H", "C", "J"], // Add N, C
+  ["V", "L", "T", "H", "C", "J"],
   ["W", "J", "P", "S"],
   ["R", "L", "T", "F", "C", "S", "Z"],
   ["Z", "N", "H", "B", "G", "D", "W"],
-  ["N", "C", "G", "V", "P", "S", "M", "F"], // Remove N, C
+  ["N", "C", "G", "V", "P", "S", "M", "F"],
   ["Z", "C", "V", "F", "J", "R", "Q", "W"],
   ["H", "L", "M", "P", "R"],
 ];
 
 const moves = input.split("\r\n");
 // Part 1
-// Commented out, so it doesnt modify the stacks
 const instructions = moves.map((move) => {
   const numbers = move.match(/\d+/g);
   return {
@@ -42,11 +41,11 @@ console.log(`[Part 1: ]${part1Stacks.map((stack) => stack[0]).join("")}`);
 const part2Stacks = [
   ["M", "F", "C", "W", "T", "D", "L", "B"],
   ["L", "B", "N"],
-  ["V", "L", "T", "H", "C", "J"], // Add N, C
+  ["V", "L", "T", "H", "C", "J"],
   ["W", "J", "P", "S"],
   ["R", "L", "T", "F", "C", "S", "Z"],
   ["Z", "N", "H", "B", "G", "D", "W"],
-  ["N", "C", "G", "V", "P", "S", "M", "F"], // Remove N, C
+  ["N", "C", "G", "V", "P", "S", "M", "F"],
   ["Z", "C", "V", "F", "J", "R", "Q", "W"],
   ["H", "L", "M", "P", "R"],
 ];
